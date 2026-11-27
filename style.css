@@ -57,7 +57,7 @@ button { font: inherit; color: inherit; }
 .card button { position: relative; display: block; padding: 0; border: 0; background: none; cursor: zoom-in; text-align: left; }
 .card .ph {
   display: block; width: var(--card-w); height: auto;
-  aspect-ratio: var(--thumb); object-fit: contain; background: #f3f3f3;
+  aspect-ratio: var(--thumb); object-fit: contain; background: var(--bg);
 }
 .card .count {
   position: absolute; left: 8px; bottom: 8px;
