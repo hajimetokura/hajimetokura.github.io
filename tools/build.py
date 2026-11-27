@@ -23,6 +23,11 @@ EXTS = {".jpg", ".jpeg", ".png", ".webp", ".heic", ".tif", ".tiff"}
 SIZES = [800, 1600]
 OG_SOURCE = "shiiba_sauna"  # 共有したときに出る写真（ファイル名、拡張子なし）
 
+# 公開しない写真（ファイル名、拡張子なし）。依頼主のロゴが消せないものなど
+EXCLUDE = {"poly_pavillion0"}
+# 公開する画像だけを切り抜く（元の写真は書き換えない）。"幅x高さ+左+上"（向きを直したあとの px）
+CROPS = {"poly_pavillion2": "1130x1361+480+0"}  # 左のポスターと右の看板を外す
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 IMG = ROOT / "img"
 DATA = ROOT / "data"
@@ -62,7 +67,8 @@ def main():
             print(f"フォルダがない: {cat}（とばします）")
             continue
         files = sorted(
-            (p for p in folder.iterdir() if p.suffix.lower() in EXTS and not p.name.startswith(".")),
+            (p for p in folder.iterdir()
+             if p.suffix.lower() in EXTS and not p.name.startswith(".") and p.stem not in EXCLUDE),
             key=lambda p: p.name.lower(),
         )
         groups: dict[str, list[pathlib.Path]] = {}
@@ -78,9 +84,10 @@ def main():
                 for size in SIZES:
                     out = IMG / f"{name}-{size}.webp"
                     made.add(out.name)
-                    if out.exists() and out.stat().st_mtime >= p.stat().st_mtime:
+                    if out.exists() and out.stat().st_mtime >= max(p.stat().st_mtime, pathlib.Path(__file__).stat().st_mtime):
                         continue
-                    magick(str(p), "-auto-orient", "-resize", f"{size}x{size}>", "-strip", "-quality", "80", str(out))
+                    crop = ["-crop", CROPS[p.stem], "+repage"] if p.stem in CROPS else []
+                    magick(str(p), "-auto-orient", *crop, "-resize", f"{size}x{size}>", "-strip", "-quality", "80", str(out))
                 w, h = subprocess.run(
                     ["magick", "identify", "-format", "%w %h", str(IMG / f"{name}-1600.webp")],
                     check=True, capture_output=True, text=True,

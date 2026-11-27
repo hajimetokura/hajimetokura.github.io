@@ -24,13 +24,13 @@ window.WORKS = [
    },
    {
     "src": "kumeseizai-hut-2",
-    "w": 1063,
-    "h": 1600
+    "w": 1600,
+    "h": 1063
    },
    {
     "src": "kumeseizai-hut-3",
-    "w": 1600,
-    "h": 1063
+    "w": 1063,
+    "h": 1600
    }
   ]
  },
@@ -53,21 +53,16 @@ window.WORKS = [
   "images": [
    {
     "src": "poly-pavillion-1",
-    "w": 1066,
-    "h": 1600
-   },
-   {
-    "src": "poly-pavillion-2",
     "w": 1600,
     "h": 1066
    },
    {
-    "src": "poly-pavillion-3",
-    "w": 1600,
-    "h": 1063
+    "src": "poly-pavillion-2",
+    "w": 1130,
+    "h": 1361
    },
    {
-    "src": "poly-pavillion-4",
+    "src": "poly-pavillion-3",
     "w": 1600,
     "h": 1063
    }
@@ -111,6 +106,23 @@ window.WORKS = [
     "src": "bend-cnc-chair-2",
     "w": 1200,
     "h": 1600
+   }
+  ]
+ },
+ {
+  "id": "kanna-gikakuzai",
+  "category": "furniture",
+  "file": "kanna_gikakuzai",
+  "images": [
+   {
+    "src": "kanna-gikakuzai-1",
+    "w": 1200,
+    "h": 1200
+   },
+   {
+    "src": "kanna-gikakuzai-2",
+    "w": 1600,
+    "h": 1068
    }
   ]
  },
