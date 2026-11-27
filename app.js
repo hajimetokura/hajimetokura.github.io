@@ -4,8 +4,6 @@
   const PROFILE = window.PROFILE || {};
   const CATS = { architecture: "Architecture", furniture: "Furniture", products: "Products", art: "Art" };
 
-  // 自分の Mac で開いたとき（または ?check を付けたとき）だけ「要確認」を出す
-  const CHECK = location.protocol === "file:" || ["localhost", "127.0.0.1"].includes(location.hostname) || /[?&]check\b/.test(location.search);
 
   const el = (tag, attrs = {}, ...kids) => {
     const n = document.createElement(tag);
@@ -16,12 +14,11 @@
     return n;
   };
   const pretty = (s) => s.replace(/[-_]+/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-  const flag = (text) => (CHECK ? el("span", { class: "check", text }) : null);
   const srcset = (name) => `img/${name}-800.webp 800w, img/${name}-1600.webp 1600w`;
 
   const works = WORKS.map((w) => {
     const m = META[w.id] || {};
-    return { ...w, ...m, title: m.title || pretty(w.file), titled: !!m.title, tags: m.tags || [] };
+    return { ...w, ...m, title: m.title || pretty(w.file), tags: m.tags || [] };
   });
 
   // 名前とリンク
@@ -35,21 +32,16 @@
   const strip = document.getElementById("strip");
   works.forEach((w, i) => {
     const first = w.images[0];
-    const ratio = first.w / first.h;
     const img = el("img", {
       class: "ph", src: `img/${first.src}-800.webp`, srcset: srcset(first.src),
-      sizes: `calc(min(62vh, 560px) * ${ratio.toFixed(3)})`, alt: w.title,
-      width: first.w, height: first.h, loading: i < 3 ? "eager" : "lazy", decoding: "async",
-      style: `aspect-ratio:${first.w}/${first.h}`,
+      sizes: "(max-width: 600px) 78vw, 450px", alt: w.title,
+      loading: i < 3 ? "eager" : "lazy", decoding: "async",
     });
     const title = el("div", { class: "title" }, w.title, w.ja ? el("span", { class: "ja", text: w.ja }) : null);
     const meta = el("div", { class: "meta" },
       el("span", { class: "tag cat", text: CATS[w.category] }),
       ...w.tags.map((t) => el("span", { class: "tag", text: t })),
       w.year ? el("span", { text: String(w.year) }) : null,
-      !w.titled ? flag("要確認: 作品名") : null,
-      !w.year ? flag("年") : null,
-      !w.photo ? flag("撮影") : null,
     );
     const btn = el("button", { type: "button", "aria-label": `${w.title} — open` }, img,
       w.images.length > 1 ? el("span", { class: "count", text: `1 / ${w.images.length}` }) : null);
@@ -92,8 +84,8 @@
     counter.textContent = w.images.length > 1 ? `1 / ${w.images.length}` : "";
     cap.replaceChildren(
       el("div", { class: "title" }, counter, w.title, w.ja ? el("span", { class: "ja", text: w.ja }) : null),
-      el("div", {}, credit || flag("要確認: 担当・チーム")),
-      el("div", {}, w.photo ? `Photo: ${w.photo}` : flag("要確認: 撮影")),
+      el("div", {}, credit),
+      el("div", {}, w.photo ? `Photo: ${w.photo}` : ""),
     );
     viewer.showModal();
     slides.scrollLeft = 0;

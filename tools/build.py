@@ -8,7 +8,7 @@
 - フォルダ名がタグになる。
 - ファイル名の末尾の番号だけが違う写真は 1 つの作品にまとめる。
     kumeseizai_hut1 / kumeseizai_hut_2 → kumeseizai-hut
-    light_object_A / light_object_B   → light-object
+    light_object_A / light_object_A2  → light-object-a
 - 画像は長辺 800px と 1600px の WebP にし、写真に付いている情報を消す（-strip）。
 - 作品名・年・担当などは data/meta.js に手で書く（このスクリプトは触らない）。
 """
@@ -35,10 +35,10 @@ def slug(s: str) -> str:
 
 def work_key(stem: str) -> str:
     """末尾の番号を外して、作品の名前にする。"""
-    m = re.match(r"^(.*?)[-_ ](\d{1,3}|[A-Z])$", stem)  # name_2, name-2, name_A
+    m = re.match(r"^(.*?)[-_ ](\d{1,3})$", stem)  # name_2, name-2
     if m:
         return m.group(1)
-    m = re.match(r"^(.*[a-z])(\d{1,2})$", stem)  # name1, name12（SDIM0003 は対象外）
+    m = re.match(r"^(.*[A-Za-z])(\d{1,2})$", stem)  # name1, name_A2（SDIM0003 は対象外）
     if m:
         return m.group(1)
     return stem
@@ -88,6 +88,13 @@ def main():
                 images.append({"src": name, "w": int(w), "h": int(h)})
             works.append({"id": wid, "category": cat, "file": key, "images": images})
             print(f"{cat:13} {wid}  ({len(photos)} 枚)")
+
+    # 屋号のロゴ（元のフォルダの直下の logo.jpg）。白を透明にして余白を切る
+    logo = src / "logo.jpg"
+    if logo.exists():
+        magick(str(logo), "-fuzz", "12%", "-transparent", "white", "-trim", "+repage",
+               "-resize", "x120", "-strip", "-quality", "90", str(IMG / "logo.webp"))
+        made.add("logo.webp")
 
     if og_file:
         magick(str(og_file), "-auto-orient", "-resize", "1200x630^", "-gravity", "center",

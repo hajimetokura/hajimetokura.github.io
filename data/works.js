@@ -47,6 +47,33 @@ window.WORKS = [
   ]
  },
  {
+  "id": "poly-pavillion",
+  "category": "architecture",
+  "file": "poly_pavillion",
+  "images": [
+   {
+    "src": "poly-pavillion-1",
+    "w": 1066,
+    "h": 1600
+   },
+   {
+    "src": "poly-pavillion-2",
+    "w": 1600,
+    "h": 1066
+   },
+   {
+    "src": "poly-pavillion-3",
+    "w": 1600,
+    "h": 1063
+   },
+   {
+    "src": "poly-pavillion-4",
+    "w": 1600,
+    "h": 1063
+   }
+  ]
+ },
+ {
   "id": "shiiba-sauna",
   "category": "architecture",
   "file": "shiiba_sauna",
@@ -76,9 +103,14 @@ window.WORKS = [
   "file": "bend_cnc_chair",
   "images": [
    {
-    "src": "bend-cnc-chair",
+    "src": "bend-cnc-chair-1",
     "w": 540,
     "h": 720
+   },
+   {
+    "src": "bend-cnc-chair-2",
+    "w": 1200,
+    "h": 1600
    }
   ]
  },
@@ -100,7 +132,12 @@ window.WORKS = [
   "file": "namiita_chair",
   "images": [
    {
-    "src": "namiita-chair",
+    "src": "namiita-chair-1",
+    "w": 1200,
+    "h": 1600
+   },
+   {
+    "src": "namiita-chair-2",
     "w": 1200,
     "h": 1600
    }
@@ -115,6 +152,40 @@ window.WORKS = [
     "src": "namiita-stool",
     "w": 843,
     "h": 899
+   }
+  ]
+ },
+ {
+  "id": "namita-chair",
+  "category": "furniture",
+  "file": "namita_chair",
+  "images": [
+   {
+    "src": "namita-chair",
+    "w": 1200,
+    "h": 1600
+   }
+  ]
+ },
+ {
+  "id": "newtexture",
+  "category": "furniture",
+  "file": "newtexture",
+  "images": [
+   {
+    "src": "newtexture-1",
+    "w": 1600,
+    "h": 1201
+   },
+   {
+    "src": "newtexture-2",
+    "w": 1600,
+    "h": 1202
+   },
+   {
+    "src": "newtexture-3",
+    "w": 1600,
+    "h": 1063
    }
   ]
  },
@@ -155,23 +226,6 @@ window.WORKS = [
   ]
  },
  {
-  "id": "sdim0003",
-  "category": "furniture",
-  "file": "SDIM0003",
-  "images": [
-   {
-    "src": "sdim0003-1",
-    "w": 1600,
-    "h": 1201
-   },
-   {
-    "src": "sdim0003-2",
-    "w": 1600,
-    "h": 1202
-   }
-  ]
- },
- {
   "id": "shell-table",
   "category": "furniture",
   "file": "shell_table",
@@ -183,6 +237,11 @@ window.WORKS = [
    },
    {
     "src": "shell-table-2",
+    "w": 1600,
+    "h": 1063
+   },
+   {
+    "src": "shell-table-3",
     "w": 1600,
     "h": 1063
    }
@@ -213,29 +272,51 @@ window.WORKS = [
   ]
  },
  {
-  "id": "light-object",
-  "category": "products",
-  "file": "light_object",
+  "id": "tamentai-stool",
+  "category": "furniture",
+  "file": "tamentai_stool",
   "images": [
    {
-    "src": "light-object-1",
-    "w": 1440,
-    "h": 1083
+    "src": "tamentai-stool-1",
+    "w": 1063,
+    "h": 1600
    },
    {
-    "src": "light-object-2",
-    "w": 1440,
-    "h": 1080
+    "src": "tamentai-stool-2",
+    "w": 1200,
+    "h": 1600
    }
   ]
  },
  {
-  "id": "light-object-b2",
+  "id": "light-object-a",
   "category": "products",
-  "file": "light_object_B2",
+  "file": "light_object_A",
   "images": [
    {
-    "src": "light-object-b2",
+    "src": "light-object-a-1",
+    "w": 1440,
+    "h": 1083
+   },
+   {
+    "src": "light-object-a-2",
+    "w": 1458,
+    "h": 1107
+   }
+  ]
+ },
+ {
+  "id": "light-object-b",
+  "category": "products",
+  "file": "light_object_B",
+  "images": [
+   {
+    "src": "light-object-b-1",
+    "w": 1440,
+    "h": 1080
+   },
+   {
+    "src": "light-object-b-2",
     "w": 1201,
     "h": 1600
    }
@@ -254,12 +335,12 @@ window.WORKS = [
   ]
  },
  {
-  "id": "papercraft",
+  "id": "papercraft-lampshade",
   "category": "products",
-  "file": "papercraft",
+  "file": "papercraft_lampshade",
   "images": [
    {
-    "src": "papercraft",
+    "src": "papercraft-lampshade",
     "w": 1600,
     "h": 1280
    }
@@ -271,7 +352,12 @@ window.WORKS = [
   "file": "soundzougan_obon",
   "images": [
    {
-    "src": "soundzougan-obon",
+    "src": "soundzougan-obon-1",
+    "w": 1600,
+    "h": 1201
+   },
+   {
+    "src": "soundzougan-obon-2",
     "w": 1600,
     "h": 1201
    }
@@ -290,14 +376,14 @@ window.WORKS = [
   ]
  },
  {
-  "id": "240510-a7-1019",
+  "id": "logtown",
   "category": "art",
-  "file": "240510_a7_1019",
+  "file": "logtown",
   "images": [
    {
-    "src": "240510-a7-1019",
-    "w": 1067,
-    "h": 1600
+    "src": "logtown",
+    "w": 1600,
+    "h": 1200
    }
   ]
  },
