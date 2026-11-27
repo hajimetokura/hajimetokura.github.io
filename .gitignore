@@ -1,0 +1,12 @@
+.DS_Store
+# 元の写真・PDF は入れない（公開用は tools/build.py が img/ に書き出す）
+*.pdf
+*.JPG
+*.jpeg
+*.png
+*.heic
+*.tif
+*.tiff
+originals/
+*.jpg
+!img/og.jpg
