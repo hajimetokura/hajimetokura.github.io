@@ -140,6 +140,11 @@ window.WORKS = [
     "src": "namiita-chair-2",
     "w": 1200,
     "h": 1600
+   },
+   {
+    "src": "namiita-chair-3",
+    "w": 1200,
+    "h": 1600
    }
   ]
  },
@@ -152,18 +157,6 @@ window.WORKS = [
     "src": "namiita-stool",
     "w": 843,
     "h": 899
-   }
-  ]
- },
- {
-  "id": "namita-chair",
-  "category": "furniture",
-  "file": "namita_chair",
-  "images": [
-   {
-    "src": "namita-chair",
-    "w": 1200,
-    "h": 1600
    }
   ]
  },
