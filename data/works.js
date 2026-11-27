@@ -53,16 +53,21 @@ window.WORKS = [
   "images": [
    {
     "src": "poly-pavillion-1",
+    "w": 1066,
+    "h": 1600
+   },
+   {
+    "src": "poly-pavillion-2",
     "w": 1600,
     "h": 1066
    },
    {
-    "src": "poly-pavillion-2",
+    "src": "poly-pavillion-3",
     "w": 1130,
     "h": 1361
    },
    {
-    "src": "poly-pavillion-3",
+    "src": "poly-pavillion-4",
     "w": 1600,
     "h": 1063
    }
